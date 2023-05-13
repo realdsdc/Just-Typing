@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Just Typing</title>
+    <style>
+      /* Set the page background color to black */
+      body {
+        background-color: black;
+      }
+      
+      /* Center the input box and make it larger */
+      #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+      
+      #input-box {
+        width: 80%;
+        height: 50px;
+        font-size: 24px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: 'Inter', sans-serif;
+      }
+      
+      .font-btn {
+        background-color: white;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-family: 'Inter', sans-serif;
+        border-radius: 5px;
+      }
+      
+      #start-btn {
+        font-family: 'Press Start 2P', cursive;
+      }
+      
+      #comic-btn {
+        font-family: 'Comic Sans MS', cursive;
+      }
+      
+      /* Position the font buttons in the bottom right corner */
+      #btn-container {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      /* Position the text display in the bottom left corner */
+      #text-display {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        font-size: 24px;
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container">
+      <input type="text" id="input-box" placeholder="Type something here">
+      <div id="btn-container">
+        <button class="font-btn" id="inter-btn">Inter</button>
+        <button class="font-btn" id="start-btn">Press Start 2P</button>
+        <button class="font-btn" id="comic-btn">Comic Sans MS</button>
+      </div>
+    </div>
+    
+    <div id="text-display"></div>
+
+    <script>
+      // Add an event listener to the input box
+      document.getElementById("input-box").addEventListener("keydown", function(event) {
+        // Get the text from the input box
+        var inputText = document.getElementById("input-box").value;
+        
+        // Check if the Enter key is pressed
+        if (event.key === "Enter") {
+          // Output the text to the text display
+          var textDisplay = document.getElementById("text-display");
+          textDisplay.innerHTML = inputText;
+          
+          // Clear the input box
+          document.getElementById("input-box").value = "";
+        }
+      });
+      
+      // Add event listeners to the font buttons
+      document.getElementById("inter-btn").addEventListener("click", function() {
+document.getElementById("input-box").style.fontFamily = "'Inter', sans-serif";
+});  document.getElementById("start-btn").addEventListener("click", function() {
+    document.getElementById("input-box").style.fontFamily = "'Press Start 2P', cursive";
+  });
+  
+  document.getElementById("comic-btn").addEventListener("click", function() {
+    document.getElementById("input-box").style.fontFamily = "'Comic Sans MS', cursive";
+  });
+</script>
+ </body>
+</html>
